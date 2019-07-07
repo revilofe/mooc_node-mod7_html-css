@@ -1,0 +1,161 @@
+@charset "utf-8";
+/* CSS Document */
+body, html {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+section {
+    display: grid;
+    margin-bottom: 0.1em;
+}
+
+article {
+    background-color: #ffab91;
+    font-family: 'Lato', sans-serif;
+    justify-content: center;
+    align-items: center;
+}
+
+article h1 {
+    margin-bottom: 0.5em;
+    text-transform: uppercase;
+    padding-left: 0.5em;
+}
+
+article div {
+    display: grid;
+    margin: 0;
+    margin-bottom: 0.5em;
+    text-transform: uppercase;
+    padding-left: 0.5em;
+}
+
+/************************************/
+/* NAV: uso de FLEX */
+nav {
+    margin-bottom: 0.1em;
+    font-family: 'Lato', sans-serif;
+
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav li {
+    flex-grow: 1;
+}
+
+nav a {
+    display: block;
+    padding: 1em;
+    text-align: center;
+    text-decoration: none;
+    color: #000000;
+    border: solid 1px #424242;
+    transition: all 0.5s;
+    text-transform: uppercase;
+}
+
+nav a:hover {
+    background-color: #4fc3f7;
+}
+
+/************************************/
+/* ASIDE: Uso de GRID */
+aside {
+    display: grid;
+    grid-gap: 0.5rem;
+    padding: 0.5rem;
+    background-color: Yellow;
+}
+
+.card {
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    transition: all 1s;
+}
+
+.card img:hover {
+    filter: invert(100%);
+}
+
+/************************************/
+/* FOOTER */
+footer {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.8em;
+    color: #FFFFFF;
+    background-color: #666;
+    padding: 0.3rem;
+    padding-left: 2.2em;
+}
+
+
+/************************************/
+/* ORIENTACIÓN: Punto de ruptura para la visualización landscape y portrait */
+
+/* Cuando anchura el mayor que altura: Definido landscape */
+@media (orientation: landscape) {
+    /* cambio del ordenamiento de la sección principal (article, aside), en este caso se pasa a tener 2 columnas, y una fila que se ajustara a tamaño: 75%, 25% */
+    section {
+        grid-template-columns: 3fr 1fr;
+        grid-template-rows: auto;
+    }
+
+    aside {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+    }
+
+    article div {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto;
+    }
+
+    nav ul {
+        flex-direction: row;
+    }
+
+    a {
+        margin-right: 0.2em;
+    }
+}
+
+/* Cuando altura es mayor que anchura: Definido portrait*/
+@media (orientation: portrait) {
+
+    /* cambio del ordenamiento de la sección principal (article, aside), en este caso se pasa a tener 1 columnas, y 2 filas que se ajustaran a tamaño */
+    section {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+    }
+
+    aside {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto;
+    }
+
+    article div {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav a {
+        margin-bottom: 0.2em;
+    }
+}
+
